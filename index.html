@@ -1,287 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Arun Joshva - Portfolio</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arun Joshva - Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
 
-  /* Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0f0f0f;
-    color: #eee;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-  a {
-    color: #f3a261;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #ff784e;
-  }
-
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 80px;
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.9);
-    z-index: 1000;
-  }
-  .sidebar nav {
-    margin-top: 2rem;
-  }
-  .sidebar nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .sidebar nav ul li a {
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    cursor: pointer;
-    color: #eee;
-    padding: 0.5rem 0;
-    display: block;
-  }
-  .sidebar nav ul li a:hover,
-  .sidebar nav ul li a.active {
-    color: #f3a261;
-  }
-
-  /* Social Icons */
-  .social-icons {
-    margin-top: auto;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .social-icons a {
-    color: #eee;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: #f3a261;
-  }
-
-  /* Main content */
-  main {
-    margin-left: 80px;
-    padding: 3rem 4rem;
-  }
-
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero h1 {
-    font-size: 6rem;
-    font-weight: 800;
-    color: #f3a261;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.3rem;
-  }
-  .hero p {
-    font-weight: 300;
-    font-size: 1.5rem;
-    max-width: 450px;
-    color: #eee;
-    letter-spacing: 0.05em;
-  }
-
-  /* Background shapes */
-  .shape {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.2;
-    filter: blur(80px);
-    z-index: 0;
-  }
-  .shape1 {
-    width: 250px;
-    height: 250px;
-    background: #f3a261;
-    top: 20%;
-    left: 10%;
-  }
-  .shape2 {
-    width: 200px;
-    height: 200px;
-    background: #ff784e;
-    bottom: 25%;
-    right: 15%;
-  }
-
-  /* Sections */
-  section {
-    padding: 5rem 0;
-    border-bottom: 1px solid #222;
-  }
-  section:last-of-type {
-    border-bottom: none;
-  }
-  section h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #f3a261;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  section p {
-    font-weight: 300;
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    line-height: 1.6;
-  }
-
-  /* Services (Portfolio) Grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.7);
-    transition: transform 0.3s ease;
-    cursor: default;
-  }
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(243, 162, 97, 0.5);
-  }
-  .card h3 {
-    color: #f3a261;
-    margin-bottom: 0.7rem;
-  }
-  .card p {
-    color: #ccc;
-    font-weight: 300;
-  }
-  .card a {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #ff784e;
-    font-weight: 600;
-  }
-  .card a:hover {
-    text-decoration: underline;
-  }
-
-  /* Contact Form */
-  form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  input, textarea {
-    background: #121212;
-    border: none;
-    border-radius: 10px;
-    padding: 1rem 1.2rem;
-    color: #eee;
-    font-size: 1rem;
-    resize: none;
-    box-shadow: inset 0 0 10px rgba(243, 162, 97, 0.2);
-  }
-  input::placeholder, textarea::placeholder {
-    color: #777;
-  }
-  button {
-    background: #f3a261;
-    border: none;
-    border-radius: 30px;
-    padding: 1rem;
-    font-weight: 700;
-    color: #111;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: #ff784e;
-    color: #fff;
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem 0;
-    color: #666;
-    font-weight: 300;
-    margin-top: 4rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 720px) {
-    main {
-      padding: 2rem;
-      margin-left: 60px;
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #eee;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #f3a261;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #ff784e;
+    }
+
+    /* Sidebar */
     .sidebar {
-      width: 60px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 80px;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.9);
+      z-index: 1000;
+    }
+    .sidebar nav {
+      margin-top: 2rem;
+    }
+    .sidebar nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
     .sidebar nav ul li a {
-      font-size: 0.8rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      cursor: pointer;
+      color: #eee;
+      padding: 0.5rem 0;
+      display: block;
+    }
+    .sidebar nav ul li a:hover,
+    .sidebar nav ul li a.active {
+      color: #f3a261;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      margin-top: auto;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .social-icons a {
+      color: #eee;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #f3a261;
+    }
+
+    /* Main content */
+    main {
+      margin-left: 80px;
+      padding: 3rem 4rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     .hero h1 {
-      font-size: 4rem;
+      font-size: 6rem;
+      font-weight: 800;
+      color: #f3a261;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+    .hero p {
+      font-weight: 300;
+      font-size: 1.5rem;
+      max-width: 450px;
+      color: #eee;
+      letter-spacing: 0.05em;
+    }
+
+    /* Background shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      filter: blur(80px);
+      z-index: 0;
+    }
+    .shape1 {
+      width: 250px;
+      height: 250px;
+      background: #f3a261;
+      top: 20%;
+      left: 10%;
+    }
+    .shape2 {
+      width: 200px;
+      height: 200px;
+      background: #ff784e;
+      bottom: 25%;
+      right: 15%;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #222;
+    }
+    section:last-of-type {
+      border-bottom: none;
     }
     section h2 {
-      font-size: 2.4rem;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #f3a261;
+      margin-bottom: 2rem;
+      text-align: center;
     }
-  }
-  @media (max-width: 480px) {
-    main {
-      margin-left: 0;
+    section p {
+      font-weight: 300;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Services Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(243, 162, 97, 0.5);
+    }
+    .card h3 {
+      color: #f3a261;
+      margin-bottom: 0.7rem;
+    }
+    .card p {
+      color: #ccc;
+      font-weight: 300;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #ff784e;
+      font-weight: 600;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Form */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    input, textarea {
+      background: #121212;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      color: #eee;
+      font-size: 1rem;
+      resize: none;
+      box-shadow: inset 0 0 10px rgba(243, 162, 97, 0.2);
+    }
+    input::placeholder, textarea::placeholder {
+      color: #777;
+    }
+    button {
+      background: #f3a261;
+      border: none;
+      border-radius: 30px;
       padding: 1rem;
+      font-weight: 700;
+      color: #111;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .sidebar {
-      display: none;
+    button:hover {
+      background: #ff784e;
+      color: #fff;
     }
-  }
-</style>
 
-<!-- FontAwesome for social icons -->
-<script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      color: #666;
+      font-weight: 300;
+      margin-top: 4rem;
+    }
 
+    /* Responsive */
+    @media (max-width: 720px) {
+      main {
+        padding: 2rem;
+        margin-left: 60px;
+      }
+      .sidebar {
+        width: 60px;
+      }
+      .sidebar nav ul li a {
+        font-size: 0.8rem;
+      }
+      .hero h1 {
+        font-size: 4rem;
+      }
+      section h2 {
+        font-size: 2.4rem;
+      }
+    }
+    @media (max-width: 480px) {
+      main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -296,9 +294,9 @@
     </ul>
   </nav>
   <div class="social-icons">
-    <a href="https://github.com/arunjoshva" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://linkedin.com/in/arunjoshva" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="mailto:arjose1993@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/arunjoshva" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/arunjoshva" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:arjose1993@gmail.com"><i class="fas fa-envelope"></i></a>
   </div>
 </div>
 
@@ -352,6 +350,20 @@
         <p>Clean and responsive <strong>Pinterest login page</strong> clone with HTML & CSS.</p>
         <a href="https://arunjoshva.github.io/pinterest-login-clone/" target="_blank">Live Demo</a>
       </div>
+      <div class="card">
+        <h3>Machine Learning: Doctor Availability Prediction</h3>
+        <p>A Hugging Face-hosted model that predicts doctor availability using logistic regression.</p>
+        <a href="https://huggingface.co/spaces/arunjoshva/doctor-availability" target="_blank">Try Model</a>
+      </div>
+      <div class="card">
+        <h3>Web Scraping Tool (Python)</h3>
+        <p>A Python script that scrapes quotes from Add commentMore actions
+            <a href="https://quotes.toscrape.com/" target="_blank">quotes.toscrape.com</a> 
+            using <code>requests</code> and <code>BeautifulSoup</code>. 
+            <a href="https://github.com/arunjoshva/portfolio/blob/main/web_scraper.py" target="_blank">View Script on GitHub</a>
+        </p>
+
+      </div>
     </div>
   </section>
 
@@ -366,26 +378,23 @@
   </footer>
 </main>
 
-<!-- FontAwesome CDN for icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <script>
-  // Scrollspy active menu
   const sections = document.querySelectorAll('section');
-  const navLi = document.querySelectorAll('.sidebar nav ul li a');
+  const navLinks = document.querySelectorAll('.sidebar nav ul li a');
 
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 100;
-      if(pageYOffset >= sectionTop) {
+      if (pageYOffset >= sectionTop) {
         current = section.getAttribute('id');
       }
     });
-    navLi.forEach(a => {
-      a.classList.remove('active');
-      if(a.getAttribute('href') === '#' + current) {
-        a.classList.add('active');
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
       }
     });
   });
