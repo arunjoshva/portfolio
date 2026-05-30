@@ -28,6 +28,10 @@ The portfolio highlights frontend, backend, database, deployment, and version co
 ### Frontend Libraries
 - React.js
 - TypeScript
+- Redux Toolkit
+- RTK Query
+- React Router DOM
+- Tailwind CSS
 
 ### CMS & Design
 - WordPress
@@ -66,6 +70,7 @@ The portfolio highlights frontend, backend, database, deployment, and version co
 - Job Board REST API
 - React E-commerce UI
 - React + TypeScript E-commerce Platform
+- Recipe Finder App using React + TypeScript + Redux Toolkit + RTK Query
 
 ### Database Projects
 - Ecommerce SQL Database
