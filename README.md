@@ -66,6 +66,7 @@ The portfolio highlights frontend, backend, database, deployment, and version co
 ## Featured Projects
 
 ### MERN & Full Stack Projects
+- MERN Task Manager Application
 - Realtime Chat Application
 - Job Board REST API
 - React E-commerce UI
