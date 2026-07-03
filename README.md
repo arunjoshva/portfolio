@@ -68,7 +68,8 @@ The portfolio highlights frontend, backend, database, deployment, and version co
 ### MERN & Full Stack Projects
 - MERN Task Manager Application
 - Realtime Chat Application
-- Job Board REST API
+- Job Board REST API 
+- Library Management REST API using Laravel
 - React E-commerce UI
 - React + TypeScript E-commerce Platform
 - Recipe Finder App using React + TypeScript + Redux Toolkit + RTK Query
