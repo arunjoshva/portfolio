@@ -246,6 +246,64 @@
   font-weight: 600;
 }
 
+/* === Counter Section === */
+#counters {
+  padding: 3rem 0;
+  border-bottom: 1px solid #222;
+}
+
+.counter-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.counter-card {
+  background: #1a1a1a;
+  border: 1px solid #292929;
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(243, 162, 97, 0.2);
+}
+
+.counter-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f3a261;
+  margin-bottom: 0.5rem;
+}
+
+.counter-label {
+  color: #ccc;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .counter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-number {
+    font-size: 2.2rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -764,6 +822,35 @@
       </div>
     </section>
 
+    <!-- ===== Counter Section ===== -->
+    <section id="counters">
+      <h2>Career Highlights</h2>
+
+      <div class="counter-grid">
+
+        <div class="counter-card">
+          <div class="counter-number" data-target="30">0+</div>
+          <div class="counter-label">Projects</div>
+        </div>
+
+        <div class="counter-card">
+          <div class="counter-number" data-target="20">0+</div>
+          <div class="counter-label">Technologies</div>
+        </div>
+
+        <div class="counter-card">
+          <div class="counter-number" data-target="1.5">0+</div>
+          <div class="counter-label">Years Experience</div>
+        </div>
+
+        <div class="counter-card">
+          <div class="counter-number" data-target="5">0+</div>
+          <div class="counter-label">Deployment Platforms</div>
+        </div>
+
+      </div>
+    </section>
+
     <section id="contact">
       <h2>Contact Me</h2>
       <p>Email: <a href="mailto:arjose1993@gmail.com">arjose1993@gmail.com</a></p>
@@ -801,7 +888,53 @@
           }
         });
       });
-    });    
+    }); 
+
+    // Counter Animation
+    const counters = document.querySelectorAll(".counter-number");
+
+    const startCounter = (counter) => {
+      const target = parseFloat(counter.dataset.target);
+      const isDecimal = target % 1 !== 0;
+
+      let current = 0;
+      const increment = target / 100;
+
+      const updateCounter = () => {
+        current += increment;
+
+        if (current >= target) {
+          counter.textContent = `${target}${isDecimal ? "+" : "+"}`;
+          return;
+        }
+
+        counter.textContent = `${isDecimal ? current.toFixed(1) : Math.floor(current)}+`;
+
+        requestAnimationFrame(updateCounter);
+      };
+
+      updateCounter();
+    };
+
+    const counterObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            counters.forEach(startCounter);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.4
+      }
+    );
+
+    const counterSection = document.querySelector("#counters");
+
+    if (counterSection) {
+      counterObserver.observe(counterSection);
+    }   
   </script>
 </body>
 </html>
